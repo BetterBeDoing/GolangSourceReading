@@ -1,12 +1,11 @@
 package myslice
 
+import "fmt"
+
 type MyComparable interface{ int | string | float64 | bool }
 
-type E MyComparable
-
-// This a function that try to understand the usage of ~
-// this function does not use the ~ operator
-func EqualWithoutOperator[S []E, E MyComparable](a, b S) bool {
+// Try to understand the ~ operator
+func Equal[S ~[]E, E MyComparable](a, b S) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -18,14 +17,8 @@ func EqualWithoutOperator[S []E, E MyComparable](a, b S) bool {
 	return true
 }
 
-func EqualWithOperator[S ~[]E, E MyComparable](a, b S) bool {
-	if len(a) != len(b) {
-		return false
+func CheckTildeOp[S ~[]E, E int](a S) {
+	for _, v := range a {
+		fmt.Println(v)
 	}
-	for i := range a {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
 }

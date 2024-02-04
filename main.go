@@ -1,21 +1,13 @@
 package main
 
-import (
-	"GolangSourceReading/myslice"
-	"fmt"
-)
+import "GolangSourceReading/myslice"
 
-type intX int
+type intX []int
+type intY int
 
 func main() {
+	slice0 := intX{1, 2, 3}
 
-	a := []int{1, 2, 3}
-	c := []intX(1, 2, 3)
-	b := []string{"a", "b", "c"}
-	flag := []bool{}
-	flag = append(flag, myslice.EqualWithoutOperator(a, a))
-	flag = append(flag, myslice.EqualWithoutOperator(a, b))
-	flag = append(flag, myslice.EqualWithOperator(b, b))
-	flag = append(flag, myslice.EqualWithOperator(a, c))
-	fmt.Println(flag)
+	myslice.CheckTildeOp(slice0)
+	myslice.CheckTildeOp(slice1)
 }
