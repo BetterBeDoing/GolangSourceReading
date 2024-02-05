@@ -60,3 +60,5 @@ bool        int     int32(rune)  float64  complex128  string
 Equal比较的是底层类型相同的切片之间是否完全相等。
 
 EqualFunc比较的是底层类型不同两个切片是否完全相同。
+
+slice的扩容机制：代码在`runtime.growslice`，目前是256机制会发生改变。
